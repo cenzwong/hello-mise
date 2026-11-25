@@ -1,0 +1,6 @@
+[project]
+name = "hello-mise"
+version = "0.1.0"
+description = "A native-first Python and Node.js Hello World"
+requires-python = ">=3.13,<3.14"
+dependencies = []

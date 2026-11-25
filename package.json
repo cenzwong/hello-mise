@@ -1,0 +1,14 @@
+{
+  "name": "hello-mise",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.15.0",
+  "engines": {
+    "node": ">=22 <23"
+  },
+  "scripts": {
+    "start": "node --env-file=.env hello.mjs",
+    "test": "node --test tests/hello.test.mjs"
+  }
+}

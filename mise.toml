@@ -1,0 +1,25 @@
+# Optional developer experience. Native project files remain authoritative.
+[tools]
+uv = "0.10.0"
+
+[settings]
+idiomatic_version_file_enable_tools = ["python", "node", "pnpm"]
+python.uv_venv_auto = "source"
+
+[env]
+_.file = ".env"
+UV_PYTHON = { value = "{{ tools.python.path }}", tools = true }
+UV_PYTHON_DOWNLOADS = "never"
+
+# Optional shortcuts, not required by either application.
+[tasks.setup]
+description = "Restore Python and Node dependencies"
+run = ["uv sync --locked", "pnpm install --frozen-lockfile"]
+
+[tasks.hello]
+description = "Run both Hello World applications"
+run = ["uv run --locked --env-file .env hello.py", "pnpm start"]
+
+[tasks.test]
+description = "Run both native test suites"
+run = ["uv run --locked python -m unittest discover -s tests -p 'test_*.py'", "pnpm test"]
