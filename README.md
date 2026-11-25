@@ -49,6 +49,11 @@ Add this line to `~/.zshrc` **once**, if it is not already there:
 eval "$(mise activate zsh)"
 ```
 
+`~/.zprofile` — IDE / Login Shell
+```sh
+eval "$(mise activate zsh --shims)"
+```
+
 Open a new terminal. For an optional rolling global toolbox, run these outside the repository:
 
 ```sh
