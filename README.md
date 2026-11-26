@@ -243,3 +243,19 @@ Mise and pnpm were unavailable in the authoring environment, and network access 
 - [Mise: environment variables](https://mise.jdx.dev/environments/)
 - [uv: working on projects](https://docs.astral.sh/uv/guides/projects/)
 - [pnpm: installation](https://pnpm.io/installation)
+
+## Validation
+
+The reference implementation has been validated on macOS (Apple Silicon) using Mise-managed Python 3.13.5, Node.js 22.16.0, uv 0.10.0 and pnpm 10.15.0.
+
+The following checks passed:
+
+- Automatic switching from the rolling global toolbox to pinned project versions.
+- Dependency restoration using `uv sync --locked`.
+- Dependency restoration using `pnpm install --frozen-lockfile`.
+- Creation of the project virtual environment using the Mise-managed Python interpreter.
+- Direct execution of both Python and Node.js applications.
+- All three Python tests and all three Node.js tests.
+- Automatic restoration of global tool versions when leaving the project directory.
+
+These results validate the Mise-enhanced workflow on macOS ARM64. A completely Mise-free environment has not been independently retested as part of this validation.
